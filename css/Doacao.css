@@ -1,0 +1,322 @@
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background: linear-gradient(to right, #e0e7ff, #f0f4ff);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    flex-direction: column;
+  }
+
+  .fixed-button {
+    position: fixed;
+    display: flex;
+    /* Deixe visível */
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 1;
+    /* Deixe visível */
+    transition: opacity 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  #whatsappButton {
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    box-shadow: 0px 0px 10px rgba(0, 255, 0, 0.5);
+    animation: pulse 2s infinite;
+  }
+
+  #whatsappButton i {
+    font-size: 24px;
+    color: #fff;
+  }
+
+  /* MENU HAMBÚRGUER */
+ .menu-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001; /* maior que o menu */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Barrinhas do botão */
+.menu-toggle span {
+  width: 30px;
+  height: 4px;
+  background-color: #000000;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Menu lateral (escondido por padrão) */
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Quando o menu está ativo */
+.menu.active {
+  transform: translateX(0);
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #050505;
+  font-weight: bold;
+}
+
+  /* LAYOUT PRINCIPAL */
+  .content {
+    display: flex;
+    flex: 1;
+    margin-top: 60px;
+  }
+
+  .photo-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    max-width: 180px;
+  }
+
+  .photo-column img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .center-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+  }
+
+  .donation-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .donation-card h1 {
+    font-size: 28px;
+    color: #1f2937;
+    margin-bottom: 12px;
+  }
+
+  .donation-card p {
+    font-size: 18px;
+    color: #4b5563;
+    margin-bottom: 20px;
+  }
+
+  .pix-box {
+    background-color: #e0edff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .pix-box strong {
+    color: #1d4ed8;
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .copy-button {
+    background-color: #1d4ed8;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .copy-button:hover {
+    background-color: #2563eb;
+  }
+
+  .qrcode {
+    margin-top: 15px;
+  }
+
+  .qrcode img {
+    width: 140px;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .photo-column {
+      flex-direction: row;
+      max-width: 100%;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .photo-column img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .center-container {
+      padding: 20px;
+    }
+
+    .donation-card h1 {
+      font-size: 22px;
+    }
+
+    .donation-card p,
+    .pix-box strong,
+    .copy-button {
+      font-size: 16px;
+    }
+
+    .copy-button {
+      padding: 10px 16px;
+    }
+  }
+
+  .footer {
+    background-color: var(--color-black);
+    width: 100%;
+    padding: 3rem 1rem;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+  }
+
+  .container-footer {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 30px;
+  }
+
+  .footer-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-column {
+    align-items: flex-start;
+  }
+
+  .logo-column img {
+    width: 100px;
+  }
+
+  .menu-column {
+    text-align: center;
+  }
+
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+  }
+
+  .footer-nav a {
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-destaque1);
+  }
+
+  .social-column {
+    text-align: right;
+  }
+
+  .social-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .social-links a {
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+  }
+
+  .social-links a i {
+    margin-right: 0.5rem;
+  }
+
+  .social-links a:hover {
+    color: var(--color-destaque1);
+  }
+
+  .credits-column {
+    text-align: right;
+    font-size: 0.9rem;
+  }
+
+  .credits-column p {
+    margin: 0.2rem 0;
+  }

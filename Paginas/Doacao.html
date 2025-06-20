@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doação - Instituto Servir</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsividade.css">
+
+  <link rel="stylesheet" href="../css/Doacao.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div id="whatsappButton" class="fixed-button">
+    <i class="bi bi-whatsapp"></i>
+  </div>
+  <!-- Botão do Menu Hambúrguer -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menu Lateral -->
+  <nav class="menu" id="menu">
+    <a href="../index.html">INÍCIO</a>
+    <a href="../Paginas/transparencia.html">TRANSPARÊNCIA</a>
+    <a href="../Paginas/quem-somos.html">QUEM SOMOS</a>
+    <a href="../Paginas/contato.html">CONTATO</a>
+    <a href="../Paginas/Doacao.html">FAÇA SUA DOAÇÃO!</a>
+  </nav>
+
+  <!-- Conteúdo principal -->
+  <div class="content">
+    <!-- Coluna esquerda -->
+    <div class="photo-column">
+      <img src="../Fotos do instituto/cestas basicas.jpg" alt="Projeto 1" />
+      <img src="../Fotos do instituto/projrorodadeconversa.png" alt="Projeto 2" />
+      <img src="../Fotos do instituto/foto do pessoal no bazar.jpg" alt="Projeto 3" />
+    </div>
+
+    <!-- Card de doação -->
+    <div class="center-container">
+      <div class="donation-card">
+        <h1>Instituto Servir</h1>
+        <p>Ajude nossa missão com uma doação via PIX.</p>
+        <div class="pix-box">
+          <span>Chave PIX (CNPJ):</span>
+          <strong>36.629.410/0001-43</strong>
+          <button class="copy-button" onclick="copiarPix()">Copiar chave PIX</button>
+          <p id="mensagem-copiado" style="display:none; color:green; margin-top:10px;">
+            ✅ Chave copiada com sucesso!
+          </p>
+        </div>
+        <p>Ou escaneie o QR Code:</p>
+        <div class="qrcode">
+          <img src="../Qrcode.png" alt="QR Code PIX" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna direita -->
+    <div class="photo-column">
+      <img src="../Fotos do instituto/foto da equipe1.jpg" alt="Equipe 1" />
+      <img src="../Fotos do instituto/criancassentadas.png" alt="Equipe 2" />
+      <img src="../Fotos do instituto/entrega de sopa 2.jpeg" alt="Equipe 3" />
+    </div>
+  </div>
+  <footer class="footer" id="footer">
+    <div class="container-footer">
+      <div class="footer-column logo-column">
+        <img src="assets/img/SUA-LOGO-AQUI.png" alt="">
+      </div>
+      <div class="footer-column menu-column">
+        <nav class="footer-nav">
+          <a href="#inicio">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#servicos">Quem Somos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </div>
+      <div class="footer-column social-column">
+        <ul class="social-links">
+          <li><a href="https://www.instagram.com/institutoservirr/" target="_blank" rel="noopener noreferrer"><i
+                class="bi bi-instagram"></i>
+              Instagram</a></li>
+          <li><a href="https://api.whatsapp.com/send/?phone=556191814545&text&type=phone_number&app_absent=0"
+              target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i> Whatsapp</a></li>
+          <li><a href="https://www.facebook.com/InstitutoServirBSB" target="_blank" rel="noopener noreferrer"><i
+                class="bi bi-facebook"></i>
+              Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-column credits-column">
+      <p>&copy; 2025 Todos os direitos reservados.</p>
+      <p>Desenvolvido por FERNANDO│Dev.</p>
+    </div>
+    <!-- Script -->
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('active');
+      }
+
+      function copiarPix() {
+        const chave = '36.629.410/0001-43';
+        navigator.clipboard.writeText(chave).then(() => {
+          const msg = document.getElementById('mensagem-copiado');
+          msg.style.display = 'block';
+          setTimeout(() => {
+            msg.style.display = 'none';
+          }, 3000);
+        });
+      }
+    </script>
+    <script src="https://ajax.googleapis.com/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Inicialização do AOS -->
+    <script>
+      AOS.init();
+    </script>
+
+    <!--JavaScript-->
+    <script src="../js/header.js"></script>
+    <script src="../js/actionButton.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/slideSobre.js"></script>
+    <script src="../js/slidePortfolio.js"></script>
+</body>
+
+</html>
